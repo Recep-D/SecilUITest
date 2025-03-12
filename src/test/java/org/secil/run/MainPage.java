@@ -26,7 +26,7 @@ public class MainPage extends Hooks {
         Assertions.assertEquals("Kadın Giyim ve Aksesuar Markası: SecilStore - SecilStore", pageTitleActual );
 
         boolean isElementVisible = page.locator("button:has-text('Hesabım')").isVisible();
-        System.out.println("İlk context’te buton bulundu mu?: " + isElementVisible);
+        System.out.println("İlk context’te 'Hesabım' teksti bulundu mu?: " + isElementVisible);
 
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Kabul Et")).click();
         page.locator("a").filter(new Locator.FilterOptions().setHasText("Giriş Yap")).first().click();
@@ -48,7 +48,7 @@ public class MainPage extends Hooks {
         System.out.println("accountText = " + accountText);
 
         boolean isAccountTextVisible = page.locator("//span[.='Hesabım']").last().isVisible();
-        System.out.println("İlk accountText buton bulundu mu?: " + isAccountTextVisible);
+        System.out.println("Giriş sonrası 'Hesabım' teksti bulundu mu?: " + isAccountTextVisible);
 
 
 
