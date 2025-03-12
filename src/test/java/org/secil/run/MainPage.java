@@ -10,10 +10,11 @@ import org.secil.utils.Hooks;
 
 import java.util.regex.Pattern;
 
-public class testPage extends Hooks {
+public class MainPage extends Hooks {
 
     @Test
     void mainPageTest() {
+
         Page page=BrowserFactory.page;
         page.navigate("https://www.secilstore.com/");
         page.waitForTimeout(3000);
