@@ -5,18 +5,25 @@ import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.secil.pages.LocatorsPage;
 import org.secil.utils.BrowserFactory;
+import org.secil.utils.ConfigurationReader;
 import org.secil.utils.Hooks;
 
 import java.util.regex.Pattern;
 
-public class MainPage extends Hooks {
+public class MainPageTest extends Hooks {
+
+    private LocatorsPage locatorsPage;
+
 
     @Test
     void mainPageTest() {
 
         Page page=BrowserFactory.page;
-        page.navigate("https://www.secilstore.com/");
+        locatorsPage = new LocatorsPage(page);
+
+        page.navigate(ConfigurationReader.getProperty("url"));
         page.waitForTimeout(3000);
 
         String pageUrl = page.url();
@@ -28,13 +35,13 @@ public class MainPage extends Hooks {
         boolean isElementVisible = page.locator("button:has-text('Hesabım')").isVisible();
         System.out.println("İlk context’te 'Hesabım' teksti bulundu mu?: " + isElementVisible);
 
-        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Kabul Et")).click();
-        page.locator("a").filter(new Locator.FilterOptions().setHasText("Giriş Yap")).first().click();
-        page.getByPlaceholder("Email adresiniz").click();
-        page.getByPlaceholder("Email adresiniz").fill("sdet.recepdemirci@gmail.com");
-        page.getByPlaceholder("Şifreniz").click();
-        page.getByPlaceholder("Şifreniz").fill("Tester/1");
-        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Giriş")).click();
+        locatorsPage.cookies().click();
+        locatorsPage.enterButton().click();
+        locatorsPage.userNameBox().click();
+        locatorsPage.enterUserName().fill("sdet.recepdemirci@gmail.com");
+        locatorsPage.passwordBox().click();
+        locatorsPage.enterPassword().fill("Tester/1");
+        locatorsPage.clickLoginButton().click();
         page.locator("div").filter(new Locator.FilterOptions().setHasText("Giriş başarılı")).nth(2).click();
         page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("P")).click();
         page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Pant")).fill("kaban");
