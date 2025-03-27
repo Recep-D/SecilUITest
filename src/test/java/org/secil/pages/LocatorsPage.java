@@ -39,6 +39,36 @@ public class LocatorsPage {
     public Locator clickLoginButton(){
         return page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Giriş"));
     }
+
+    public Locator loginSuccess(){
+        return page.locator("div").filter(new Locator.FilterOptions().setHasText("Giriş başarılı")).nth(2);
+    }
+
+    public Locator searchBox(){
+        return page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("P"));
+    }
+
+    public Locator enterSearchBox(){
+        return page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Pant"));
+    }
+
+    public Locator clickSearchButton(){
+        return page.locator(".grid > div:nth-child(3) > div > a").first();
+    }
+
+    public Locator clickForKaban(){
+        return page.locator(".flex > .flex > a").first();
+    }
+
+    public Locator clickForOtherKaban(){
+        return page.locator(".flex > .flex > a:nth-child(2)");
+    }
+
+    public Locator addToCArtButton(){
+        return  page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Sepete Ekle"));
+    }
+
+
 }
 
 

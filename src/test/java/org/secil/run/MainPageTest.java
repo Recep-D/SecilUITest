@@ -42,17 +42,18 @@ public class MainPageTest extends Hooks {
         locatorsPage.passwordBox().click();
         locatorsPage.enterPassword().fill("Tester/1");
         locatorsPage.clickLoginButton().click();
-        page.locator("div").filter(new Locator.FilterOptions().setHasText("Giriş başarılı")).nth(2).click();
-        page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("P")).click();
-        page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Pant")).fill("kaban");
-        page.getByText("\"kaban\" aramasından toplam 40").click();
-        page.locator(".grid > div:nth-child(3) > div > a").first().click();
-        page.locator(".flex > .flex > a").first().click();
-        page.locator(".flex > .flex > a:nth-child(2)").click();
-        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Sepete Ekle")).click();
+        locatorsPage.loginSuccess().click();
+        locatorsPage.searchBox().click();
+        locatorsPage.enterSearchBox().fill("kaban");
+        locatorsPage.clickSearchButton().click();
+        locatorsPage.clickForKaban().click();
+        locatorsPage.clickForOtherKaban().click();
+        locatorsPage.addToCArtButton().click();
 
         String accountText = page.locator("//span[.='Hesabım']").last().innerText();
         System.out.println("accountText = " + accountText);
+
+        Assertions.assertTrue(accountText.contains ("Hesabı"));
 
         boolean isAccountTextVisible = page.locator("//span[.='Hesabım']").last().isVisible();
         System.out.println("Giriş sonrası 'Hesabım' teksti bulundu mu?: " + isAccountTextVisible);
