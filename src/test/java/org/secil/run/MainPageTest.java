@@ -48,7 +48,22 @@ public class MainPageTest extends Hooks {
         locatorsPage.clickSearchButton().click();
         locatorsPage.clickForKaban().click();
         locatorsPage.clickForOtherKaban().click();
-        locatorsPage.addToCArtButton().click();
+        page.waitForLoadState();
+
+        // Stok kontrolü
+        if (locatorsPage.isProductOutOfStock()) {
+            System.out.println("Ürün stokta bulunmamaktadır. Başka bir ürün seçmeyi deneyiniz.");
+            // Alternatif olarak başka bir ürüne yönlendirme yapılabilir
+            locatorsPage.clickForKaban().click();
+            page.waitForLoadState();
+        }
+
+        // Eğer ürün stokta varsa sepete ekleme işlemi yapılır
+        if (locatorsPage.isProductAvailable()) {
+            locatorsPage.addToCartButton().click();
+        } else {
+            System.out.println("Seçilen ürün stokta bulunmamaktadır.");
+        }
 
         String accountText = page.locator("//span[.='Hesabım']").last().innerText();
         System.out.println("accountText = " + accountText);

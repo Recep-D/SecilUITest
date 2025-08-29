@@ -47,6 +47,11 @@ public class LocatorsPage {
     public Locator searchBox(){
         return page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("P"));
     }
+    
+    public Locator yeniGelenlerLink() {
+        // Using the specific class and text content from the HTML
+        return page.locator("a.pb-6:has-text('Yeni Gelenler')");
+    }
 
     public Locator enterSearchBox(){
         return page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Pant"));
@@ -64,11 +69,23 @@ public class LocatorsPage {
         return page.locator(".flex > .flex > a:nth-child(2)");
     }
 
-    public Locator addToCArtButton(){
-        return  page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Sepete Ekle"));
+    public boolean isProductAvailable() {
+        page.waitForLoadState();
+        return page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Sepete Ekle")).isVisible();
+    }
+
+    public boolean isProductOutOfStock() {
+        page.waitForLoadState();
+        return page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Tükendi")).isVisible();
+    }
+
+    public Locator addToCartButton() {
+        page.waitForLoadState();
+        if (!isProductAvailable()) {
+            throw new RuntimeException("Ürün şu anda stokta bulunmamaktadır.");
+        }
+        return page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Sepete Ekle"));
     }
 
 
 }
-
-
