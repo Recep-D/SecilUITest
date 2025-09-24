@@ -2,6 +2,8 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+*.log
+GeneralRules.md
 
 ### IntelliJ IDEA ###
 .idea/modules.xml
@@ -33,6 +35,13 @@ build/
 
 ### VS Code ###
 .vscode/
+.modules
 
 ### Mac OS ###
 .DS_Store
+
+### Playwright ###
+src/test/resources/videos/
+*.webm
+test-results/
+playwright-report/

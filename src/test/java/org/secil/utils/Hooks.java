@@ -2,7 +2,7 @@ package org.secil.utils;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
-import org.secil.pages.LocatorsPage;
+//import org.secil.pages.LocatorsPage;
 
 public class Hooks {
 
