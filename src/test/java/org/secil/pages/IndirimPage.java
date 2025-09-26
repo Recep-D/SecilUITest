@@ -42,27 +42,8 @@ public class IndirimPage {
         return page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Close"));
     }
 
-
-
-
     
-//   public void clickIndirimLink() {
-//        Locator link = indirimLink();
-//        link.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE).setTimeout(5000));
-//        link.click();
-//    }
 
-      
-     
-     /*  page.getByLabel("Siyah").check();
-      page.navigate("https://www.secilstore.com/indirim?ColorCode=0008");
-      page.getByLabel("Kahverengi").check();
-      page.navigate("https://www.secilstore.com/indirim?ColorCode=0008&ColorCode=0317");
-      page.getByText("Marka", new Page.GetByTextOptions().setExact(true)).click();
-      page.getByLabel("Seçil").check();
-      page.navigate("https://www.secilstore.com/indirim?ColorCode=0008&ColorCode=0317&BrandCode=secil");
-      page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Close")).click(); 
-      */
     
      
    

@@ -38,7 +38,8 @@ public class BrowserFactory {
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         int width = (int) dimension.getWidth();
         int height = (int) dimension.getHeight();
-        page.setViewportSize(width, height);
+        page.setViewportSize(width, height); 
+        
 
     }
 
