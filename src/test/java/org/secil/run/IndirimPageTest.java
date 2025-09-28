@@ -19,16 +19,13 @@ public class IndirimPageTest extends Hooks {
 
         // Navigate to main page
         page.navigate(ConfigurationReader.getProperty("url"));
-        
-        // Wait for the page to be loaded
         page.waitForLoadState();
         
-        // Click on indirim link and wait for navigation
         indirimPage.kabulEt().click();
-        page.waitForLoadState();
+        //page.waitForLoadState();
 
         indirimPage.indirimLink().click();
-        page.waitForLoadState();
+        //page.waitForLoadState();
         
         // Apply filters
         indirimPage.filtrele().click();

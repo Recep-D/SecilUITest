@@ -8,8 +8,7 @@ import com.microsoft.playwright.options.WaitForSelectorState;
 public class KoleksiyonPage {
 
     /*
-     * page.getByRole(AriaRole.LINK, new
-     * Page.GetByRoleOptions().setName("Ceket").setExact(true)).click();
+     
      * page.locator("div").filter(new Locator.FilterOptions().setHasText(Pattern.
      * compile("^hızlı alışverişyeni - biye detaylı düğmeli ceket3499\\.90 ₺$"))).
      * getByRole(AriaRole.LINK).first().click();
@@ -25,6 +24,9 @@ public class KoleksiyonPage {
      * Page.GetByRoleOptions().setName("PANTOLON")).click();
      * page.locator("#body-table").getByRole(AriaRole.CHECKBOX).first().check();
      * page.locator("#body-table").getByRole(AriaRole.BUTTON).first().click();
+     * 
+     * .pb-6.__className_96469e
+     * 
      */
 
     private final Page page;
@@ -46,6 +48,22 @@ public class KoleksiyonPage {
     }
     public void koleksiyonClick() {
         koleksiyon().click();
+    }
+
+    public Locator ceket() {
+    return page.locator ("//*[\"__next\"]/main/header/div[6]/div/ul/li[5]/div/ul/li[8]/a");
+    }
+    public void ceketClick() {
+        ceket().click();
+
+    }
+
+    public Locator itemCeket() {
+        return page.locator ("(//div[@class='relative w-full h-auto'])[5]");
+    }
+    public void itemCeketClick() {
+        itemCeket().click();
+
     }
 
 }
