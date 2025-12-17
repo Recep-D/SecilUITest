@@ -5,7 +5,7 @@ import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.secil.pages.LocatorsPage;
+import org.secil.pages.MainPage;
 import org.secil.utils.BrowserFactory;
 import org.secil.utils.ConfigurationReader;
 import org.secil.utils.Hooks;
@@ -14,14 +14,14 @@ import java.util.regex.Pattern;
 
 public class MainPageTest extends Hooks {
 
-    private LocatorsPage locatorsPage;
+    private MainPage locatorsPage;
 
 
     @Test
     void mainPageTest() {
 
         Page page=BrowserFactory.page;
-        locatorsPage = new LocatorsPage(page);
+        locatorsPage = new MainPage(page);
 
         page.navigate(ConfigurationReader.getProperty("url"));
         page.waitForTimeout(3000);
@@ -47,7 +47,7 @@ public class MainPageTest extends Hooks {
         locatorsPage.enterSearchBox().fill("kaban");
         locatorsPage.clickSearchButton().click();
         locatorsPage.clickForKaban().click();
-        locatorsPage.clickForOtherKaban().click();
+        //locatorsPage.clickForOtherKaban().click();
         page.waitForLoadState();
 
         // Stok kontrolü

@@ -2,7 +2,7 @@ package org.secil.run;
 
 import org.junit.jupiter.api.Test;
 import org.secil.pages.IndirimPage;
-import org.secil.pages.LocatorsPage;
+import org.secil.pages.MainPage;
 import org.secil.utils.BrowserFactory;
 import org.secil.utils.ConfigurationReader;
 import org.secil.utils.Hooks;

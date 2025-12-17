@@ -4,11 +4,11 @@ import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 
-public class LocatorsPage {
+public class MainPage {
 
     private final Page page;
 
-    public LocatorsPage(Page page) {
+    public MainPage(Page page) {
         this.page = page;
     }
 

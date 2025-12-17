@@ -4,7 +4,7 @@ import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.LoadState;
 import org.junit.jupiter.api.Test;
-import org.secil.pages.LocatorsPage;
+import org.secil.pages.MainPage;
 import org.secil.utils.BrowserFactory;
 import org.secil.utils.ConfigurationReader;
 import org.secil.utils.Hooks;
@@ -13,12 +13,12 @@ import java.nio.file.Paths;
 
 public class Outletpage extends Hooks {
 
-    private LocatorsPage locatorsPage;
+    private MainPage locatorsPage;
 
     @Test
     void outletPageTest() {
         Page page = BrowserFactory.page;
-        locatorsPage = new LocatorsPage(page);
+        locatorsPage = new MainPage(page);
 
         try {
             // Navigate to the main page
