@@ -22,10 +22,8 @@ public class IndirimPageTest extends Hooks {
         page.waitForLoadState();
         
         indirimPage.kabulEt().click();
-        //page.waitForLoadState();
 
         indirimPage.indirimLink().click();
-        //page.waitForLoadState();
         
         // Apply filters
         indirimPage.filtrele().click();

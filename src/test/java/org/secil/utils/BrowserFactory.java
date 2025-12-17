@@ -10,7 +10,7 @@ public class BrowserFactory {
     private static Playwright playwright;
     private static BrowserType browserType;
     private static Browser browser;
-    private static BrowserContext browserContext;
+    public static BrowserContext browserContext;
     public static Page page;
 
     public static void initBrowser(String browserName, String headless) {
