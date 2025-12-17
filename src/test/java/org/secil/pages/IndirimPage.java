@@ -42,9 +42,21 @@ public class IndirimPage {
         return page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Close"));
     }
 
+     public Locator sıralaButonu() {
+        return page.getByText("Sırala", new Page.GetByTextOptions().setExact(true));
+
+    }
+    public Locator sıralaSecim() {
+        return page.getByText("Fiyat, küçükten büyüğe");
+
+    }
+    public Locator görünüm() {
+        return page.getByLabel("Double").locator("path");
+
+    }
+      
     
 
-    
      
    
 

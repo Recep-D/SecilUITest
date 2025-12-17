@@ -20,23 +20,33 @@ public class IndirimPageTest extends Hooks {
         // Navigate to main page
         page.navigate(ConfigurationReader.getProperty("url"));
         page.waitForLoadState();
-        
+
         indirimPage.kabulEt().click();
 
         indirimPage.indirimLink().click();
-        
+
         // Apply filters
         indirimPage.filtrele().click();
-        indirimPage.renk().click(); 
+        indirimPage.renk().click();
         indirimPage.siyah().click();
         indirimPage.kahverengi().click();
         indirimPage.marka().click();
         indirimPage.secil().click();
         indirimPage.close().click();
-
-
-        
     }
-    
 
+    @Test
+    public void indirimPageTest2() {
+        Page page = BrowserFactory.page;
+        indirimPage = new IndirimPage(page);
+        // Navigate to main page
+        page.navigate(ConfigurationReader.getProperty("url"));
+        page.waitForLoadState();
+        indirimPage.kabulEt().click();
+        indirimPage.indirimLink().click();
+        indirimPage.sıralaButonu().click();
+        indirimPage.sıralaSecim().click();
+        indirimPage.görünüm().click(); 
+
+    }
 }
